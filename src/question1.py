@@ -28,7 +28,7 @@ class Contracts:
         :return(list[Contract]): Lista de contratos ordenados pelo saldo devedor em ordem decrescente.
         """
         def quicksort(arr):
-            if len(arr) == 0:
+            if len(arr) <= 1:
                 return arr
             pivot = arr[len(arr) // 2].debt
             left = [x for x in arr if x.debt > pivot]
@@ -45,7 +45,6 @@ class Contracts:
         :top_n(int): Número de principais devedores a serem retornados.
         :return(list[int]): Lista de identificadores dos N principais devedores.
         """
-
         return [contract.id for contract in contracts[:top_n]]
     
     def get_top_N_open_contracts(self, open_contracts, renegotiated_contracts, top_n):
